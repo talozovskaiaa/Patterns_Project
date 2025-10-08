@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">17.569s</div>
+<div class="counter">21.111s</div>
 <p>duration</p>
 </div>
 </td>
@@ -83,11 +83,11 @@
 Build info: version: '4.15.0', revision: '1d14b5521b'
 System info: os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '15.4.1', java.version: '17.0.16'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 140.0.7339.214, chrome: {chromedriverVersion: 140.0.7339.207 (17230b545fd..., userDataDir: /var/folders/9d/fb714pd15_b...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:62326}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:62326/devtoo..., se:cdpVersion: 140.0.7339.214, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 6216cb608a01136076ea5609555745d1
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 141.0.7390.55, chrome: {chromedriverVersion: 141.0.7390.54 (b95610d5c4a5..., userDataDir: /var/folders/9d/fb714pd15_b...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:60576}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:60576/devtoo..., se:cdpVersion: 141.0.7390.55, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 6090843dd9d6dc525b7ecfb9803f35de
 	at app//org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
 	at app//org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:229)
-	at app//ru.netology.delivery.test.DeliveryTests.shouldSuccessfulPlanAndReplanMeeting(DeliveryTests.java:74)
+	at app//ru.netology.delivery.test.DeliveryTests.shouldSuccessfulPlanAndReplanMeeting(DeliveryTests.java:71)
 	at java.base@17.0.16/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base@17.0.16/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base@17.0.16/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -190,7 +190,7 @@ Session ID: 6216cb608a01136076ea5609555745d1
 <tr>
 <td class="failures">Should successful plan and replan meeting</td>
 <td class="failures">shouldSuccessfulPlanAndReplanMeeting()</td>
-<td class="failures">17.569s</td>
+<td class="failures">21.111s</td>
 <td class="failures">failed</td>
 </tr>
 </table>
@@ -198,20 +198,15 @@ Session ID: 6216cb608a01136076ea5609555745d1
 <div id="tab2" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>Generated user data:
-City: Нижний Новгород
-Name: Меркушев Эдуард
-Phone: +79892271456
-Meeting date: 10.10.2025
-=== FORM DATA VERIFICATION BEFORE SUBMISSION ===
-Actual city: 'Нижний Новгород'
-Expected city: 'Нижний Новгород'
-Actual date: '1905-10-10'
-Expected date: '10.10.2025'
-Actual name: 'Меркушев Эдуард'
-Expected name: 'Меркушев Эдуард'
-Actual phone: '+7 989 227 14 56'
-Expected phone: '+79892271456'
+<pre>=== FORM DATA VERIFICATION BEFORE SUBMISSION ===
+Actual city: 'Ростов-на-Дону'
+Expected city: 'Ростов-на-Дону'
+Actual date: '1905-10-11'
+Expected date: '11.10.2025'
+Actual name: 'Ермаков Алла'
+Expected name: 'Ермаков Алла'
+Actual phone: '+7 962 001 12 31'
+Expected phone: '+79620011231'
 Agreement checked: true
 === FORM DATA VERIFICATION PASSED ===
 </pre>
@@ -220,12 +215,14 @@ Agreement checked: true
 <div id="tab3" class="tab">
 <h2>Standard error</h2>
 <span class="code">
-<pre>[Test worker] INFO io.github.bonigarcia.wdm.WebDriverManager - Using chromedriver 140.0.7339.207 (resolved driver for Chrome 140)
-[Test worker] INFO io.github.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as /Users/tanya/.cache/selenium/chromedriver/mac-arm64/140.0.7339.207/chromedriver
-окт. 06, 2025 9:12:58 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
-WARNING: Unable to find CDP implementation matching 140
-окт. 06, 2025 9:12:58 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
-WARNING: Unable to find version of CDP to use for 140.0.7339.214. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.15.0` where the version (&quot;v86&quot;) matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+<pre>[Test worker] INFO io.github.bonigarcia.wdm.WebDriverManager - Using chromedriver 141.0.7390.54 (resolved driver for Chrome 141)
+[Test worker] INFO io.github.bonigarcia.wdm.online.Downloader - Downloading https://storage.googleapis.com/chrome-for-testing-public/141.0.7390.54/mac-arm64/chromedriver-mac-arm64.zip
+[Test worker] INFO io.github.bonigarcia.wdm.online.Downloader - Extracting driver from compressed file chromedriver-mac-arm64.zip
+[Test worker] INFO io.github.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as /Users/tanya/.cache/selenium/chromedriver/mac-arm64/141.0.7390.54/chromedriver
+окт. 07, 2025 8:29:13 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 141
+окт. 07, 2025 8:29:13 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 141.0.7390.55. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.15.0` where the version (&quot;v86&quot;) matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 </pre>
 </span>
 </div>
@@ -237,7 +234,7 @@ WARNING: Unable to find version of CDP to use for 140.0.7339.214. You may need t
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 8.8</a> at 6 окт. 2025 г., 21:13:14</p>
+<a href="http://www.gradle.org">Gradle 8.8</a> at 7 окт. 2025 г., 20:29:31</p>
 </div>
 </div>
 </body>

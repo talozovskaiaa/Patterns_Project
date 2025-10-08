@@ -5,14 +5,16 @@ import com.github.javafaker.Faker;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
+import java.util.Random;
 
 public class DataGenerator {
     private DataGenerator() {
     }
 
     public static String generateDate(int shift) {
-        LocalDate date = LocalDate.now().plusDays(shift);
-        return date.format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
+        return LocalDate.now()
+                .plusDays(shift)
+                .format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
     }
 
     public static String generateCity() {
@@ -20,8 +22,8 @@ public class DataGenerator {
                 "Москва", "Санкт-Петербург", "Новосибирск", "Екатеринбург", "Казань",
                 "Нижний Новгород", "Челябинск", "Самара", "Омск", "Ростов-на-Дону"
         };
-        Faker faker = new Faker();
-        return faker.options().option(cities);
+        Random random = new Random();
+        return cities[random.nextInt(cities.length)];
     }
 
     public static String generateName(String locale) {

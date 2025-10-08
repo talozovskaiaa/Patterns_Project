@@ -179,7 +179,7 @@ class DeliveryTests {
     // метод очистки формы
     private void clearDateField() {
         WebElement dateInput = driver.findElement(By.cssSelector("[data-test-id=date] input"));
-        dateInput.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+        dateInput.sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
         dateInput.sendKeys(Keys.DELETE);
     }
 
