@@ -7,26 +7,23 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.*;
 
 import org.openqa.selenium.Keys;
 import ru.netology.delivery.data.DataGenerator;
 import ru.netology.delivery.page.DeliveryForm;
+import ru.netology.delivery.page.MainPageObject;
 
 import java.time.Duration;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 class DeliveryTests {
-
- private DeliveryForm deliveryForm = new DeliveryForm();
 
     @BeforeEach
     void setup() {
         Configuration.headless = false;
-        open("http://localhost:9999");
+
+        MainPageObject mainPageObject = new MainPageObject();
+        mainPageObject.openURL();
     }
 
     @Test
@@ -38,6 +35,7 @@ class DeliveryTests {
         int daysToAddForSecondMeeting = 7;
         String secondMeetingDate = DataGenerator.generateDate(daysToAddForSecondMeeting);
 
+        DeliveryForm deliveryForm = new DeliveryForm();
         deliveryForm.fillingAndSendingForm(validUser, firstMeetingDate);
         deliveryForm.checkSuccessNotification("Встреча успешно запланирована");
         deliveryForm.clearDateField();
