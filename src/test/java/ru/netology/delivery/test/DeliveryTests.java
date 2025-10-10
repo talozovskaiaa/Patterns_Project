@@ -3,31 +3,54 @@ package ru.netology.delivery.test;
 import com.microsoft.playwright.*;
 import org.junit.jupiter.api.*;
 import ru.netology.delivery.data.DataGenerator;
+import ru.netology.delivery.page.DeliveryForm;
+import ru.netology.delivery.page.MainPageObject;
 
 class DeliveryTests {
 
-    Playwright playwright;
-    Browser browser;
+    MainPageObject mainPageObject;
+    DeliveryForm deliveryForm;
     Page page;
 
     @BeforeEach
     public void setup() {
-        playwright = Playwright.create();
-        browser = playwright.chromium().launch(new BrowserType.LaunchOptions()
-                .setHeadless(false));
-        page = browser.newPage();
-        page.navigate("http://localhost:9999");
-        page.setDefaultTimeout(10000);
+
+        mainPageObject = new MainPageObject();
+        Page page = mainPageObject.setUP();
+        deliveryForm = new DeliveryForm(page);
     }
 
     @AfterEach
     public void tearDown() {
-        if (browser != null) {
-            browser.close();
-        }
-        if (playwright != null) {
-            playwright.close();
-        }
+
+        mainPageObject.tearDown();
+    }
+
+    @Test
+    @DisplayName("Playwright Test in Page Object")
+    void shouldSuccessfulPlanAndReplanMeetingInPageObject() {
+        DataGenerator.Registration.UserInfo validUser = DataGenerator.Registration.generateUser("ru");
+        var daysToAddForFirstMeeting = 4;
+        var firstMeetingDate = DataGenerator.generateDate(daysToAddForFirstMeeting);
+        var daysToAddForSecondMeeting = 7;
+        var secondMeetingDate = DataGenerator.generateDate(daysToAddForSecondMeeting);
+
+        deliveryForm.fillingAndSendingForm(validUser, firstMeetingDate);
+        // Проверка первого уведомления
+        deliveryForm.checkSuccessNotification("Встреча успешно запланирована");
+
+        deliveryForm.clearDataField();
+        deliveryForm.setDate(secondMeetingDate);
+        deliveryForm.submitForm();
+
+        // Проверка второго уведомления
+        deliveryForm.checkReplanNotification("У вас уже запланирована встреча");
+
+        deliveryForm.clickReplanButton();
+
+        // Проверка третьего уведомления
+        deliveryForm.checkSuccessNotification("Встреча успешно запланирована");
+
     }
 
     @Test
@@ -64,9 +87,5 @@ class DeliveryTests {
         //Проверка третьего уведомления
         page.locator("[data-test-id='success-notification']").waitFor();
         Assertions.assertTrue(page.innerText("[data-test-id='success-notification'] .notification__content").contains("Встреча успешно запланирована на"));
-
-
-
-
     }
 }

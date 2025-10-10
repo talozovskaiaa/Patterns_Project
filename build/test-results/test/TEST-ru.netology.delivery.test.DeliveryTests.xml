@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ru.netology.delivery.test.DeliveryTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-10-10T04:14:46" hostname="MacBook-Pro-Tatana.local" time="5.779">
+<testsuite name="ru.netology.delivery.test.DeliveryTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-10-10T10:00:58" hostname="MacBook-Pro-Tatana.local" time="6.18">
   <properties/>
-  <testcase name="Should successful plan and replan meeting" classname="ru.netology.delivery.test.DeliveryTests" time="5.779"/>
+  <testcase name="Playwright Test in Page Object" classname="ru.netology.delivery.test.DeliveryTests" time="6.18"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
