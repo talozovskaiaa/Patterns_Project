@@ -34,7 +34,6 @@ public class DeliveryForm {
         this.replanButton = page.locator("[data-test-id='replan-notification'] button:has-text('Перепланировать')");
 
 
-
     }
 
     public void fillingAndSendingForm(DataGenerator.Registration.UserInfo user, String meetingDate) {
